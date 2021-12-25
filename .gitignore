@@ -1,0 +1,10 @@
+secrets.json
+node_modules/
+build
+artifacts/
+cache/
+coverage/
+.vscode
+.DS_Store
+coverage/
+coverage.json
