@@ -19,10 +19,10 @@
  */
 
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-//
-// const fs = require("fs");
 
 require("dotenv").config();
+
+const { ethers } = require("hardhat");
 
 module.exports = {
   /**
@@ -65,7 +65,7 @@ module.exports = {
           `https://rinkeby.infura.io/v3/${process.env.INFURA_PROJECT_ID}`
         ),
       network_id: 4,
-      gasPrice: 10e9,
+      gasPrice: ethers.utils.parseUnits("50", "gwei"),
       skipDryRun: true,
     },
     // TODO: Uncomment live to deploy to mainnet
@@ -78,7 +78,7 @@ module.exports = {
     //     ),
     //   network_id: 1,
     //   gas: 5000000,
-    //   gasPrice: web3.utils.toWei("50", "gwei"),
+    //   gasPrice: ethers.utils.parseUnits("50", "gwei"),
     //  skipDryRun: false,
     // },
 
