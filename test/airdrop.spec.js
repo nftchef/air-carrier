@@ -5,6 +5,7 @@ const { ethers } = require("hardhat");
 const { assert } = require("chai");
 
 describe("========= AIRDROP ===========", () => {
+  const uri = "https://startingURI/{1}.json";
   let contractInstance = null;
   let owner;
   let acc1;
@@ -13,7 +14,7 @@ describe("========= AIRDROP ===========", () => {
 
   beforeEach(async () => {
     const Contract = await ethers.getContractFactory("Carrier");
-    contractInstance = await Contract.deploy("https://null/{1}.json");
+    contractInstance = await Contract.deploy(uri);
 
     [owner, acc1, acc2, acc3] = await ethers.getSigners();
   });
@@ -26,6 +27,10 @@ describe("========= AIRDROP ===========", () => {
         acc3.address,
       ])
     );
+  });
+
+  it("sets the uri from deployment", async () => {
+    assert.equal(await contractInstance.uri(1), uri, "URI Not set");
   });
 
   it("get's the correct URI after updating", async () => {

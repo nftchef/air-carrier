@@ -11,9 +11,11 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
  * by @NFTChef
  */
 contract Carrier is ERC1155, ERC1155Supply, Ownable {
-    // @dev: set the URI to your base URI here or call setURI later
-    constructor(string memory _uri) ERC1155(_uri) {}
+    constructor(string memory _uri) ERC1155(_uri) {
+        _setURI(_uri);
+    }
 
+    /// @dev set the URI to your base URI here, don't forget the {id} param.
     function setURI(string memory newuri) external onlyOwner {
         _setURI(newuri);
     }
