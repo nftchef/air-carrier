@@ -7,9 +7,29 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 
 /*
  * Extensible collection airdrop contract.
- *
- * by @NFTChef
+ *             "The Carrier"
  */
+ 
+          ////////////////////////
+          //                    //
+          //                    //
+          //                    //
+          //                    //
+          //     .--,--.        //
+          //      `.  ,.'       //
+          //       |___|        //
+          //       :o o:        //
+          //      _`~^~'_       //
+          //    /'   ^   `\     //
+          //    Cooked up by    //
+          //      @nftChef      //
+          //                    //
+          //                    //
+          //                    //
+          //                    //
+          ////////////////////////
+ 
+ 
 contract Carrier is ERC1155, ERC1155Supply, Ownable {
     constructor(string memory _uri) ERC1155(_uri) {
         _setURI(_uri);
